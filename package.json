@@ -6,7 +6,10 @@
   "scripts": {
     "build:emcc": "./build_web.sh",
     "build:web": "webpack --config webpack.config.js",
-    "build": "npm run build:emcc && npm run build:web"
+    "build": "npm run build:emcc && npm run build:web && npm run build:types",
+    "build:types": "npm run build:types:module && npm run build:types:ambient",
+    "build:types:module": "webidl2ts -i ./ammo.idl -n Ammo -ed -o ./builds/ammo.d.ts",
+    "build:types:ambient": "webidl2ts -i ./ammo.idl -n Ammo  -e -o ./builds/ammo-ambient.d.ts"
   },
   "files": [
     "dist/*",
@@ -17,6 +20,7 @@
     "file-loader": "^6.2.0",
     "source-map-loader": "^1.0.1",
     "uglifyjs-webpack-plugin": "^2.2.0",
+    "webidl2ts": "^1.0.4",
     "webpack": "^4.44.2",
     "webpack-cli": "^3.3.12"
   },
