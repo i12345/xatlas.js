@@ -43,7 +43,8 @@ echo "============================================="
   # Move artifacts
   rm -rf dist
   mkdir -p dist
-  mv source/web/build/xatlas.wasm dist
+  cp source/web/build/xatlas.wasm dist
+  cp source/web/build/xatlas.js source/web/build/xatlas_web.js
 #  mv source/web/build/xatlas.wasm.map dist
 
 )
