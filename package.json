@@ -1,13 +1,14 @@
 {
-  "name": "xatlasjs",
+  "name": "xatlasjs3",
   "version": "0.1.0",
   "description": "",
   "main": "dist/xatlas.js",
+  "types": "dist/xatlas.d.ts",
   "scripts": {
     "build:emcc": "./build_web.sh",
     "build:web": "webpack --config webpack.config.js",
     "build": "npm run build:emcc && npm run build:web && npm run build:types",
-    "build:types": "echo \"generate types\""
+    "build:types": "cp source/web/xatlas.d.ts dist"
   },
   "files": [
     "dist/*",
