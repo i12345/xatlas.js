@@ -1,4 +1,14 @@
-## xatlas.js 
+# xatlasjs-esm
+
+This is a modified version of xatlas.js, which was a javascript version of [xatlas](https://github.com/jpcy/xatlas) ported by [resplash](https://github.com/repalash/xatlas.js).
+
+This version can be loaded using ES6 modules.
+
+Published under npm with name `xatlasjs-esm`.
+
+---
+
+# xatlas.js
 
 xatlas.js is a wrapper for xatlas for js. It uses `emcc` to compile WASM from C++ codebase and can be used as a simple js module or as a webworker with [comlink](https://github.com/GoogleChromeLabs/comlink)
 

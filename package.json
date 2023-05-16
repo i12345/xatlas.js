@@ -1,14 +1,14 @@
 {
-  "name": "xatlasjs3",
+  "name": "xatlasjs-esm",
   "version": "0.1.1",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/xatlas.d.ts",
   "type": "module",
   "scripts": {
-    "build:emcc": "./build_web.sh",
     "build": "npm run build:emcc && npm run build:types",
-    "build:types": "cp source/web/xatlas.d.ts dist"
+    "build:emcc": "./build.sh",
+    "build:types": "cp source/esm/xatlas.d.ts dist"
   },
   "files": [
     "dist/*",
@@ -23,7 +23,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/repalash/xatlas.js.git"
+    "url": "git+https://github.com/i12345/xatlasjs-esm.git"
   },
   "author": "Palash Bansal <palash@shaders.app>",
   "license": "MIT",

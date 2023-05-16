@@ -12,7 +12,7 @@ echo "Compiling wasm bindings"
 echo "============================================="
 (
 
-  mkdir -p source/web/build
+  mkdir -p source/esm/build
 
   # Compile C/C++ code
   emcc \
@@ -26,9 +26,9 @@ echo "============================================="
     -s MODULARIZE=1 \
     -s EXPORT_NAME="createXAtlasModule" \
     --closure 1 \
-    -o ./source/web/build/xatlas.js \
-    --js-library ./source/web/jslib.js \
-    source/web/*.cpp \
+    -o ./source/esm/build/xatlas.js \
+    --js-library ./source/esm/jslib.js \
+    source/esm/*.cpp \
     source/xatlas/xatlas.cpp \
 \
     -s ASSERTIONS=1 \
@@ -42,9 +42,8 @@ echo "============================================="
   # Move artifacts
   rm -rf dist
   mkdir -p dist
-  cp source/web/build/xatlas.{js,wasm} dist
-  cp source/web/index.js dist
-#  mv source/web/build/xatlas.wasm.map dist
+  cp source/esm/build/xatlas.{js,wasm} dist
+  cp source/esm/index.js dist
 
 )
 echo "============================================="
