@@ -24,8 +24,8 @@ export interface PackOptions {
 export class XAtlasAPI{
 
     /**
-     * @param onLoad {Function}
-     * @param locateFile {Function} - should return path for xatlas_web.wasm, default is root of domain
+     * @param onLoad {() => void}
+     * @param locateFile {(path: string, dir: string) => string} - should return path for xatlas.wasm, default is root of domain
      * @param onAtlasProgress {Function} - called on progress update with mode {ProgressCategory} and counter
      */
     constructor(onLoad: Function, locateFile: Function, onAtlasProgress: Function)

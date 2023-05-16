@@ -1,12 +1,11 @@
-import createXAtlasModule from "./build/xatlas_web.js"
-import { expose } from "comlink";
+import createXAtlasModule from "./xatlas.js"
 
 let _onLoad = ()=>{} //  we cannot put it in the object, otherwise we cannot access it from the outside
 export class XAtlasAPI{
 
     /**
-     * @param onLoad {Function}
-     * @param locateFile {Function} - should return path for xatlas_web.wasm, default is root of domain
+     * @param onLoad {() => void}
+     * @param locateFile {(path: string, dir: string) => string} - should return path for xatlas.wasm, default is root of domain
      * @param onAtlasProgress {Function} - called on progress update with mode {ProgressCategory} and counter
      */
     constructor(onLoad, locateFile, onAtlasProgress) {
@@ -21,11 +20,11 @@ export class XAtlasAPI{
         let params = {};
         if (onAtlasProgress) params = {...params, onAtlasProgress};
         const ctor = (loc)=>{
-            params = {...params, locateFile: ((path, dir)=> ( (loc && path === "xatlas_web.wasm") ? loc : dir+path) ) };
+            params = {...params, locateFile: ((path, dir)=> ( (loc && path === "xatlas.wasm") ? loc : dir+path) ) };
             createXAtlasModule(params).then(m=>{this.moduleLoaded(m)});
         }
         if (locateFile) {
-            let pp = locateFile("xatlas_web.wasm", "");
+            let pp = locateFile("xatlas.wasm", "");
             if (pp&&pp.then) pp.then(ctor);
             else ctor(pp);
         }else ctor()
@@ -217,5 +216,3 @@ export class XAtlasAPI{
     }
 
 }
-
-expose(XAtlasAPI);

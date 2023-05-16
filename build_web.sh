@@ -21,12 +21,11 @@ echo "============================================="
     ${OPTIMIZE} \
     --bind \
     --no-entry \
-    -s ERROR_ON_UNDEFINED_SYMBOLS=0 \
     -s ALLOW_MEMORY_GROWTH=1 \
-    -s MALLOC=emmalloc \
+    -s EXPORT_ES6=1 \
     -s MODULARIZE=1 \
-    -s ENVIRONMENT='worker' \
     -s EXPORT_NAME="createXAtlasModule" \
+    --closure 1 \
     -o ./source/web/build/xatlas.js \
     --js-library ./source/web/jslib.js \
     source/web/*.cpp \
@@ -43,8 +42,8 @@ echo "============================================="
   # Move artifacts
   rm -rf dist
   mkdir -p dist
-  cp source/web/build/xatlas.wasm dist
-  cp source/web/build/xatlas.js source/web/build/xatlas_web.js
+  cp source/web/build/xatlas.{js,wasm} dist
+  cp source/web/index.js dist
 #  mv source/web/build/xatlas.wasm.map dist
 
 )

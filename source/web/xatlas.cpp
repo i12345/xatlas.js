@@ -1,4 +1,4 @@
-#include "xatlas_web.h"
+#include "xatlas.h"
 
 xatlas::Atlas *atlas;
 xatlas::MeshDecl *meshDecl;
