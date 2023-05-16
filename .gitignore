@@ -1,5 +1,5 @@
 build
-source/web/build
+source/esm/build
 node_modules
 .idea
 .vscode
