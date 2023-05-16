@@ -28,7 +28,7 @@ export class XAtlasAPI{
      * @param locateFile {(path: string, dir: string) => string} - should return path for xatlas.wasm, default is root of domain
      * @param onAtlasProgress {Function} - called on progress update with mode {ProgressCategory} and counter
      */
-    constructor(onLoad: Function, locateFile: Function, onAtlasProgress: Function)
+    constructor(onLoad: () => void, locateFile: (path: string, dir: string) => string, onAtlasProgress: Function)
 
     moduleLoaded(mod): void
 
