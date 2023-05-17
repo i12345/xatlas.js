@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "module": "ESNext",
+        "strict": true,
+        "noEmit": true,
+    },
+    "exclude": [
+        "node_modules"
+    ]
+}

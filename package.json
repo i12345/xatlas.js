@@ -1,12 +1,13 @@
 {
   "name": "xatlasjs-esm",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/xatlas.d.ts",
   "type": "module",
   "scripts": {
-    "build": "npm run build:emcc && npm run build:types",
+    "build": "npm run build:typecheck && npm run build:emcc && npm run build:types",
+    "build:typecheck": "tsc -p source/esm/tsconfig.json",
     "build:emcc": "./build.sh",
     "build:types": "cp source/esm/xatlas.d.ts dist"
   },
@@ -17,6 +18,7 @@
   ],
   "devDependencies": {
     "file-loader": "^6.2.0",
+    "typescript": "^5.0.4",
     "webidl2ts": "^1.0.4",
     "webpack": "^5.82.1",
     "webpack-cli": "^5.1.1"

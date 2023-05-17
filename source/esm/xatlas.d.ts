@@ -30,7 +30,7 @@ export class XAtlasAPI{
      */
     constructor(onLoad: () => void, locateFile: (path: string, dir: string) => string, onAtlasProgress: Function)
 
-    moduleLoaded(mod): void
+    moduleLoaded(mod: unknown): void
 
     createAtlas(): void
 
@@ -48,7 +48,7 @@ export class XAtlasAPI{
      */
     addMesh(indexes: Uint16Array, vertices: Float32Array, normals?: Float32Array, coords?: Float32Array, meshObj?: any, useNormals?: boolean, useCoords?: boolean, scale?: number | [number, number, number]): null | { indexes: (Float32Array | null); vertices: Float32Array; normals: (Float32Array | null); meshId: number; coords: (Float32Array | null); meshObj: any; }
 
-    createMesh(vertexCount, indexCount, normals, coords): { meshId: number; indexOffset: number; positionOffset: number; normalOffset: number; uvOffset: number; meshObj: any; }
+    createMesh(vertexCount: number, indexCount: number, normals: boolean, coords: boolean): { meshId: number; indexOffset: number; positionOffset: number; normalOffset: number; uvOffset: number; meshObj: any; }
 
     // createUvMesh(vertexCount, indexCount){
     //     return this.xatlas.createUvMesh(vertexCount, indexCount);
@@ -67,9 +67,9 @@ export class XAtlasAPI{
 
     defaultPackOptions(): PackOptions
 
-    setProgressLogging(flag): void
+    setProgressLogging(flag: boolean): void
 
-    getMeshData(meshId): { newVertexCount: number; newIndexCount: number; indexOffset: number; originalIndexOffset: number; uvOffset: number; }
+    getMeshData(meshId: number): { newVertexCount: number; newIndexCount: number; indexOffset: number; originalIndexOffset: number; uvOffset: number; }
 
     destroyMeshData(data: { newVertexCount: number; newIndexCount: number; indexOffset: number; originalIndexOffset: number; uvOffset: number; }): any
 
